@@ -16,13 +16,16 @@ const ProductSearch = () => {
 
     url += `?${params.toString()}`;
 
+
+    const response = await fetch(url);
+    const data = await response.json();
+
     try {
-      const response = await fetch(url);
-      const data = await response.json();
       setGreeting(data.greeting || '');
       setResults(data.products || []);
     } catch (error) {
       console.error('Error fetching data:', error);
+      setResults(data.products || []);
     }
   };
 
