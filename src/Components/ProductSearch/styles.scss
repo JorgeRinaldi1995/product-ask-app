@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+}
+
+.products-container{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    max-width: 1080px;
+    margin: 0 auto;
+    gap: 20px;
+    .product-item{
+        max-width: 270px;
+        border: 1px solid #f1f1f1;
+        img{
+            width: 270px;
+            height: 100px;
+            object-fit: cover;
+        }
+        h2{
+            padding: 20px;
+        }
+        p{
+            padding: 20px;
+        }
+    }
+}

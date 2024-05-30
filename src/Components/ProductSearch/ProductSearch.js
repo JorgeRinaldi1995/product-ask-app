@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ChatBox from '../ChatBox/ChatBox';
+import './styles.scss';
 
 const ProductSearch = () => {
 
@@ -33,10 +34,10 @@ const ProductSearch = () => {
     <div>
       <h1>Receitas</h1>
       <ChatBox onSearch={searchProducts} greeting={greeting} />
-      <ul style={styles.productContainer}>
+      <ul className='products-container'>
         {results.map((product, index) => (
-          <li key={index} style={styles.item}>
-            <img style={styles.image} src={product.image} />
+          <li key={index} className='product-item'>
+            <img src={product.image} />
             <h2>{product.name}</h2>
             <p>{product.description}</p>
           </li>
@@ -46,22 +47,5 @@ const ProductSearch = () => {
   );
 };
 
-const styles = {
-  productContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap'
-  },
-  item: {
-    width: '100%',
-    maxWidth: '25%',
-    listStyle: 'none'
-  },
-  image: {
-    width: '200px',
-    objectFit: 'cover'
-  }
-};
 
 export default ProductSearch;

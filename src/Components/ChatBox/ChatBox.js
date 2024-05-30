@@ -44,8 +44,7 @@ const ChatBox = ({ onSearch, greeting }) => {
           </div>
         </div>
       </div>
-      <button onClick={toggleClass} className='chat-button'>butão</button>
-
+      <button onClick={toggleClass} className='chat-button'>Clique aqui</button>
     </>
   );
 };
