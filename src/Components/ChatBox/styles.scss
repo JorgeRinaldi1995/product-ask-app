@@ -1,0 +1,86 @@
+.chat-popup{
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    &.-close{
+        animation: slideOutDown 0.5s ease-in-out forwards;
+    }
+    &.-open{
+        animation: slideOutUp 0.5s ease-in-out forwards;
+    }
+    .form-container{
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+        .form-actions{
+            display: flex;
+            flex-direction: row;
+            .chatbox-input{
+                border: 3px solid #f1f1f1;
+                padding: 10px;
+                border-radius: 8px;
+                width: 100%;
+                max-width: 275px;
+                background-color: #f1f1f1;
+            }
+            .submit-button{
+                border-radius: 50%;
+                border: 0;
+                background-color: #ffffff;
+                color: #525050;
+                bottom: 290px;
+                right: 35px;
+                height: 30px;
+                width: 30px;
+                margin-left: -14%;
+                margin-top: 5px;
+                font-weight: bolder;
+                cursor: pointer;
+            }
+        }
+
+    }
+    
+}
+.chat-button{
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    position: fixed;
+    bottom: 5px;
+    right: 25px;
+    z-index: 666;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+@keyframes slideOutDown {
+    from {
+        opacity: 1;
+        height: 400px;
+    }
+    to {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+
+    
+@keyframes slideOutUp {
+    from{
+        opacity: 0;
+        height: 0;
+    }
+    to {
+        opacity: 1;
+        height: 400px;
+    }
+}

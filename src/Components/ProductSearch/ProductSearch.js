@@ -31,17 +31,37 @@ const ProductSearch = () => {
 
   return (
     <div>
-      <h1>Product Search</h1>
+      <h1>Receitas</h1>
       <ChatBox onSearch={searchProducts} greeting={greeting} />
-      <ul>
+      <ul style={styles.productContainer}>
         {results.map((product, index) => (
-          <li key={index}>
-            <strong>{product.name}</strong> - {product.description}
+          <li key={index} style={styles.item}>
+            <img style={styles.image} src={product.image} />
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
           </li>
         ))}
       </ul>
     </div>
   );
+};
+
+const styles = {
+  productContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap'
+  },
+  item: {
+    width: '100%',
+    maxWidth: '25%',
+    listStyle: 'none'
+  },
+  image: {
+    width: '200px',
+    objectFit: 'cover'
+  }
 };
 
 export default ProductSearch;

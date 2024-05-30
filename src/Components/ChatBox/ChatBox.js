@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import './styles.scss';
 
 const ChatBox = ({ onSearch, greeting }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [conversation, setConversation] = useState([]);
+  const [isActive, setActive] = useState(true);
 
   const handleSearch = () => {
     if (searchTerm.trim() !== '') {
@@ -16,63 +18,37 @@ const ChatBox = ({ onSearch, greeting }) => {
     setSearchTerm(e.target.value);
   };
 
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
+
   return (
-    <div style={styles.messageContainer}>
-        <p>Olá, eu sou o Mayonesio, como posso ajuda-lo ?</p>
-        {conversation.map((message, index) => (
+    <>
+      <div className={isActive ? 'chat-popup -open' : 'chat-popup -close'}  >
+
+        <div className='form-container'>
+          <p>Olá, eu sou o Mayonesio, como posso ajuda-lo ?</p>
+          {conversation.map((message, index) => (
             <p key={index}>{message}</p>
-        ))}
-        {greeting && <p>{greeting}</p>}
-        <div style={styles.inputWrapper}>
+          ))}
+          {greeting && <p>{greeting}</p>}
+          <div className='form-actions'>
             <input
-                type="text"
-                placeholder="Digite o que você procura"
-                value={searchTerm}
-                onChange={handleChange}
-                style={styles.input}
+              type="text"
+              placeholder="Digite o que você procura"
+              value={searchTerm}
+              onChange={handleChange}
+              className='chatbox-input'
             />
-            <button onClick={handleSearch} style={styles.button}>Search</button>
+            <button onClick={handleSearch} className="submit-button">↑</button>
+          </div>
         </div>
-    </div>
+      </div>
+      <button onClick={toggleClass} className='chat-button'>butão</button>
+
+    </>
   );
 };
 
-const styles = {
-  messageContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    padding: '10px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    maxWidth: '400px',
-    margin: '0 auto',
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    right: '0',
-    bottom: '0',
-    transform: 'translate(100%, 10px)',
-  },
-  inputWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    margin: '10px 0',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-  },
-  button: {
-    padding: '10px 20px',
-    borderRadius: '5px',
-    border: 'none',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    cursor: 'pointer',
-  },
-};
 
 export default ChatBox;
